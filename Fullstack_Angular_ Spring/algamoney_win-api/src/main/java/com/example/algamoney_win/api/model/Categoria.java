@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Entity;
 
-
+@javax.persistence.Entity
 @Table(name = "categoria")
 public class Categoria {
 
