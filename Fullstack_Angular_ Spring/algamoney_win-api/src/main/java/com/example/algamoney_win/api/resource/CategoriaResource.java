@@ -14,15 +14,15 @@ import com.example.algamoney_win.api.repository.CategoriaRepository;
 @RestController
 @RequestMapping("/categorias") //mapeamento de URL em porta 80
 public class CategoriaResource {
-	
+
 	@Autowired //injentando implementação de repositorio.
 	private CategoriaRepository categoriaRepository;
 	
+	
+	
 	@GetMapping
-	public ResponseEntity<?> listar (){         // lista de resposta para reposta vazia , em caso de de erro 404 ou 200 em pagina.
-		List<Categoria> categorias = categoriaRepository.findAll();
-		return !categorias.isEmpty() ? ResponseEntity.ok(categorias) :  ResponseEntity.notFound().build(); 
-		// Aplicamos a regra que se a a lista NÃO TIVER VAZIA , SE APLICA A REGRA, se não , aplica se a regra do NOT FOUND --> 400 em status 
-		
-	}
+    public List<Categoria> listar() {
+        return categoriaRepository.findAll(); // Voltando para metadado original 
+    }
+	
 }
